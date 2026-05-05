@@ -13,12 +13,12 @@ function Invoke-Python {
     if (Test-Command 'python') {
         Write-Success "python: $(& python --version)"
     } else {
-        Write-Warn "python not on PATH yet — open a fresh terminal."
+        Write-Warn "python not on PATH yet -- open a fresh terminal."
     }
 
     if (Test-Command 'uv') {
         Write-Success "uv: $(& uv --version)"
     } else {
-        Write-Warn "uv not on PATH yet — open a fresh terminal."
+        Write-Warn "uv not on PATH yet -- open a fresh terminal."
     }
 }

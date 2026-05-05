@@ -13,6 +13,6 @@ function Invoke-GitHubCli {
         Write-Success "gh installed: $(& gh --version | Select-Object -First 1)"
         Write-Info "To authenticate later run:  gh auth login"
     } else {
-        Write-Warn "gh not on PATH yet — open a fresh terminal."
+        Write-Warn "gh not on PATH yet -- open a fresh terminal."
     }
 }

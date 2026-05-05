@@ -77,7 +77,7 @@ function Invoke-Git {
         Write-Success "Global .gitignore_global installed at $gitignoreDest"
     }
 
-    # Identity prompt — non-blocking, only if missing.
+    # Identity prompt -- non-blocking, only if missing.
     $userName  = & git config --global --get user.name  2>$null
     $userEmail = & git config --global --get user.email 2>$null
     if ([string]::IsNullOrWhiteSpace($userName) -or [string]::IsNullOrWhiteSpace($userEmail)) {

@@ -97,7 +97,7 @@ foreach ($name in $moduleMap.Keys) {
         $results.Add([pscustomobject]@{ Module = $name; Status = 'FAIL'; Error = $_.Exception.Message })
         # Prereqs failure is fatal; everything else continues.
         if ($name -eq 'Prereqs') {
-            Write-Host "`nPrereqs failed — aborting. See log: $Global:DevEnvLogFile" -ForegroundColor Red
+            Write-Host "`nPrereqs failed -- aborting. See log: $Global:DevEnvLogFile" -ForegroundColor Red
             exit 1
         }
     }
