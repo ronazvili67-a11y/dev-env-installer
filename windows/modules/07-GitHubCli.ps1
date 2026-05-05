@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs GitHub CLI (gh).
 #>

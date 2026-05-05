@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs Claude Code via the official native installer
     (https://claude.ai/install.ps1). Falls back to npm if the native installer

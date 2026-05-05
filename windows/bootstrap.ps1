@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     One-liner bootstrap. Downloads the repo, then runs windows/install.ps1.
 
@@ -14,7 +14,7 @@
 
 [CmdletBinding()]
 param(
-    [string] $Repo   = 'ronazvili67-a11y/dev-env-installer',  # set by maintainer
+    [string] $Repo   = 'YOUR_GITHUB_USER/dev-env-installer',  # set by maintainer
     [string] $Branch = 'main',
     [string[]] $SkipModules = @()
 )

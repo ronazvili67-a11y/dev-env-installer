@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs Python 3.12 and uv (modern Python package manager from Astral).
 #>

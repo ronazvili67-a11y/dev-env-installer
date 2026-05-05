@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     One-click installer for the modern dev environment on Windows.
 
@@ -119,7 +119,7 @@ foreach ($cmd in 'code', 'git', 'node', 'npm', 'claude', 'gh', 'python', 'uv', '
             Write-Host ("  {0,-12}{1}" -f $cmd, $v)
         } catch { }
     } else {
-        Write-Host ("  {0,-12}<not on PATH>" -f $cmd) -ForegroundColor DarkYellow
+        Write-Host ("  {0,-12}[not on PATH]" -f $cmd) -ForegroundColor DarkYellow
     }
 }
 

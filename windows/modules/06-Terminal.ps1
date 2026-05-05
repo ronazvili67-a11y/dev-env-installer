@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs Windows Terminal + Oh My Posh + PSReadLine + theme.
     Updates the user's PowerShell profile so the prompt activates automatically.

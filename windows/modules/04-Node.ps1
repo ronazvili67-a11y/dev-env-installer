@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs Node.js LTS and updates npm to latest.
 #>

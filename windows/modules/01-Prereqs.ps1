@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Verifies prerequisites: TLS 1.2+, winget, ExecutionPolicy.
 #>

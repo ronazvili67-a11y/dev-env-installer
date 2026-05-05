@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Shared helper functions used by all dev-env-installer modules.
 #>

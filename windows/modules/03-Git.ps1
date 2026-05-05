@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs Git for Windows and applies sensible global config defaults.
 #>

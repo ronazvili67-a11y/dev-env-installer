@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Installs VS Code, applies user settings, and installs recommended extensions
     (including the official Claude Code extension).
