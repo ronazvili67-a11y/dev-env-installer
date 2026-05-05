@@ -39,20 +39,20 @@ git push -u origin main
 
 ## שלב 4 — עדכון URLs בקבצים
 
-לאחר שה-repo עלה, החליפי את `YOUR_GITHUB_USER/dev-env-installer` בערך האמיתי בקבצים הבאים:
+לאחר שה-repo עלה, החליפי את `ronazvili67-a11y/dev-env-installer` בערך האמיתי בקבצים הבאים:
 
 | קובץ | שורה | מחרוזת לחיפוש |
 |---|---|---|
-| `README.md` | 2 | `YOUR_GITHUB_USER/dev-env-installer` (3 מופעים) |
-| `windows/bootstrap.ps1` | param | `YOUR_GITHUB_USER/dev-env-installer` |
-| `mac/bootstrap.sh` | REPO= | `YOUR_GITHUB_USER/dev-env-installer` |
+| `README.md` | 2 | `ronazvili67-a11y/dev-env-installer` (3 מופעים) |
+| `windows/bootstrap.ps1` | param | `ronazvili67-a11y/dev-env-installer` |
+| `mac/bootstrap.sh` | REPO= | `ronazvili67-a11y/dev-env-installer` |
 
 פקודה אחת ב-Mac/Linux:
 ```bash
 USER="rona-zvili"          # החליפי בשם המשתמשת שלך ב-GitHub
 REPO="dev-env-installer"
 find . -type f \( -name '*.md' -o -name '*.sh' -o -name '*.ps1' \) -print0 \
-    | xargs -0 sed -i.bak "s|YOUR_GITHUB_USER/dev-env-installer|${USER}/${REPO}|g"
+    | xargs -0 sed -i.bak "s|ronazvili67-a11y/dev-env-installer|${USER}/${REPO}|g"
 find . -name '*.bak' -delete
 git commit -am "chore: update repo URLs"
 git push
@@ -64,7 +64,7 @@ $user = 'rona-zvili'
 $repo = 'dev-env-installer'
 Get-ChildItem -Recurse -Include *.md,*.sh,*.ps1 | ForEach-Object {
     $c = Get-Content $_.FullName -Raw
-    $c2 = $c -replace 'YOUR_GITHUB_USER/dev-env-installer', "$user/$repo"
+    $c2 = $c -replace 'ronazvili67-a11y/dev-env-installer', "$user/$repo"
     if ($c -ne $c2) { Set-Content $_.FullName -Value $c2 -NoNewline }
 }
 git commit -am "chore: update repo URLs"

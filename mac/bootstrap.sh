@@ -14,7 +14,7 @@
 
 set -euo pipefail
 
-REPO="${REPO:-YOUR_GITHUB_USER/dev-env-installer}"
+REPO="${REPO:-ronazvili67-a11y/dev-env-installer}"
 BRANCH="${BRANCH:-main}"
 
 TMP_ROOT="$(mktemp -d -t dev-env-installer.XXXXXX)"

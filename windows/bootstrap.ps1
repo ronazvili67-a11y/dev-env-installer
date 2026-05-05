@@ -14,7 +14,7 @@
 
 [CmdletBinding()]
 param(
-    [string] $Repo   = 'YOUR_GITHUB_USER/dev-env-installer',  # set by maintainer
+    [string] $Repo   = 'ronazvili67-a11y/dev-env-installer',  # set by maintainer
     [string] $Branch = 'main',
     [string[]] $SkipModules = @()
 )

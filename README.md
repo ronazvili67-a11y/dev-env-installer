@@ -21,14 +21,14 @@
 ## התקנה ב-One-Liner
 
 > ⚠️ **לפני שמשתמשים**: עדכן את ה-URLs כאן ל-repo שלך אחרי `git push`.
-> מחליפים `YOUR_GITHUB_USER/dev-env-installer` בפרטים שלך.
+> מחליפים `ronazvili67-a11y/dev-env-installer` בפרטים שלך.
 
 ### Windows (PowerShell)
 
 פתח **PowerShell** (לא chocoshell, לא cmd, לא Terminal עם profile אחר) והדבק:
 
 ```powershell
-irm https://raw.githubusercontent.com/YOUR_GITHUB_USER/dev-env-installer/main/windows/bootstrap.ps1 | iex
+irm https://raw.githubusercontent.com/ronazvili67-a11y/dev-env-installer/main/windows/bootstrap.ps1 | iex
 ```
 
 הסקריפט יבקש הרשאות מנהל אוטומטית במידת הצורך.
@@ -38,7 +38,7 @@ irm https://raw.githubusercontent.com/YOUR_GITHUB_USER/dev-env-installer/main/wi
 פתח **Terminal** והדבק:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USER/dev-env-installer/main/mac/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ronazvili67-a11y/dev-env-installer/main/mac/bootstrap.sh | bash
 ```
 
 המערכת תבקש את סיסמת המשתמש פעם אחת (להתקנת Xcode CLT אם אינו מותקן).
@@ -165,11 +165,11 @@ $ oh-my-posh --version      # 24.x.x
 לפני שאתה מריץ סקריפט אקראי מהאינטרנט, **תמיד**:
 ```powershell
 # Windows: צפה בקובץ לפני הרצה
-irm https://raw.githubusercontent.com/YOUR_GITHUB_USER/dev-env-installer/main/windows/bootstrap.ps1 | more
+irm https://raw.githubusercontent.com/ronazvili67-a11y/dev-env-installer/main/windows/bootstrap.ps1 | more
 ```
 ```bash
 # macOS: זהה
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USER/dev-env-installer/main/mac/bootstrap.sh | less
+curl -fsSL https://raw.githubusercontent.com/ronazvili67-a11y/dev-env-installer/main/mac/bootstrap.sh | less
 ```
 
 ---
