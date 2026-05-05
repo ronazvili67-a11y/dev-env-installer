@@ -1,0 +1,54 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  shellcheck:
+    name: shellcheck (mac/*.sh)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          severity: warning
+          scandir: ./mac
+          additional_files: mac/install.sh mac/bootstrap.sh
+
+  psscriptanalyzer:
+    name: PSScriptAnalyzer (windows/*.ps1)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+      - name: Analyze PowerShell
+        shell: pwsh
+        run: |
+          $results = Invoke-ScriptAnalyzer -Path windows -Recurse -Severity Warning,Error
+          $results | Format-Table -AutoSize
+          if ($results | Where-Object Severity -EQ 'Error') { exit 1 }
+
+  json-validate:
+    name: Validate shared JSON configs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: |
+          set -e
+          for f in shared/vscode-settings.json shared/vscode-extensions.json shared/oh-my-posh-theme.omp.json; do
+            echo "Checking $f"
+            # The vscode-settings.json contains // comments (jsonc) so we strip them first.
+            python3 -c "
+          import json, re, sys
+          src = open('$f').read()
+          src = re.sub(r'^\s*//.*$', '', src, flags=re.M)
+          json.loads(src)
+          print('OK: $f')
+          "
+          done

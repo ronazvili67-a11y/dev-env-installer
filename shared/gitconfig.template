@@ -1,0 +1,74 @@
+# =============================================================================
+# Git global config — modern best practices (2026)
+# Applied by the dev-env-installer. Lines starting with # are comments.
+# Existing user values are preserved; only missing keys are written.
+# =============================================================================
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+    ff = only
+
+[push]
+    autoSetupRemote = true
+    default = simple
+    followTags = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+
+[rebase]
+    autoStash = true
+    autoSquash = true
+
+[merge]
+    conflictStyle = zdiff3
+    ff = false
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+    renames = copies
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[rerere]
+    enabled = true
+
+[help]
+    autocorrect = prompt
+
+[color]
+    ui = auto
+
+[core]
+    # autocrlf is set per-platform by the installer (input on Mac, true on Windows)
+    excludesfile = ~/.gitignore_global
+    editor = code --wait
+    pager = less -FRX
+
+[commit]
+    verbose = true
+
+[log]
+    date = iso
+
+[alias]
+    s = status -sb
+    co = checkout
+    br = branch
+    ci = commit
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    amend = commit --amend --no-edit
+    undo = reset --soft HEAD~1
+    sync = !git pull --rebase && git push
+    pushf = push --force-with-lease

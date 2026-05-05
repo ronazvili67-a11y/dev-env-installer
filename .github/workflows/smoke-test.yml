@@ -1,0 +1,52 @@
+name: Smoke test
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'windows/**'
+      - 'mac/**'
+      - 'shared/**'
+      - '.github/workflows/smoke-test.yml'
+
+# These jobs install software on real runners. They take time, so we don't run
+# them on every push — only on PRs and manual dispatch. The runners are throw-
+# away, so it's safe to actually install.
+
+jobs:
+  windows:
+    name: Smoke (windows-latest)
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run installer (skip Terminal/Python to keep it fast)
+        shell: pwsh
+        run: |
+          .\windows\install.ps1 -SkipModules Terminal,Python -NoElevate
+      - name: Verify versions
+        shell: pwsh
+        run: |
+          foreach ($cmd in 'code','git','node','npm','claude','gh') {
+            $v = (& $cmd --version 2>$null | Select-Object -First 1)
+            Write-Host "$cmd : $v"
+            if (-not $?) { throw "$cmd not available" }
+          }
+
+  macos:
+    name: Smoke (macos-latest)
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make installer executable
+        run: chmod +x mac/install.sh mac/modules/*.sh
+      - name: Run installer (skip terminal/python to keep it fast)
+        run: ./mac/install.sh --skip terminal,python
+      - name: Verify versions
+        run: |
+          for cmd in code git node npm claude gh; do
+            v=$("$cmd" --version 2>/dev/null | head -n1 || echo missing)
+            echo "$cmd : $v"
+            command -v "$cmd" >/dev/null || { echo "$cmd not available"; exit 1; }
+          done
